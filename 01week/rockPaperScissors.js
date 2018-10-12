@@ -7,12 +7,20 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+//hand1 enters move, hand2 move (done for us)
+//check to see if move is valid
+//if moves invalid redo moves (getprompt)
+//check win state (loss or tie)
 
 function rockPaperScissors(hand1, hand2) {
 
   // Write code here
 
 }
+
+function checkValid()
+
+function checkWin()
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
