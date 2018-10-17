@@ -7,11 +7,52 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+// hand1 enters move, hand2 move (done for us)
+// check to see if move is valid. checkValid
+// if moves invalid redo moves (getprompt)
+// check win state (loss or tie). checkWin()
 
 function rockPaperScissors(hand1, hand2) {
+  if (checkValid(hand1) && checkValid(hand2)) {
+    if (hand1 == hand2) {
+      return "It's a tie!";
+    } 
+    // hand1 = rock
+    else if (hand1 == "rock") {
+      if (hand2 == "scissors") {
+          return "Hand one wins!";
+      } else {
+          return "Hand two wins!";
+      };
+    } 
+    // hand1 = paper
+    else if (hand1 == "paper") {
+      if (hand2 == "rock") {
+          return "Hand one wins!";
+      } else {
+          return "Hand two wins!";
+      };
+    }
+    // hand1 = scissors
+    else if (hand1 == "scissors") {
+      if (hand2 == "paper") {
+          return "Hand one wins!";
+      } else {
+          return "Hand two wins!";
+      }
+    }
+  } else {
+    console.log('Please redo');
+  }
+}
 
-  // Write code here
-
+const checkValid = (hand) => {
+  const lowerCase = hand.toLowerCase()
+  if (lowerCase == 'rock' || lowerCase == 'paper' || lowerCase == 'scissors') {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function getPrompt() {
