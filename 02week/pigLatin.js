@@ -1,3 +1,13 @@
+//planning
+//input text
+//check to see if valid (make sure string, check if any numbers), if not ask to re enter a word. checkValid()
+//check for uppercase, turn all to lowercase. fixCase()
+//check to see if start with vowel, if vowel, add yay to end. checkVowel() return it back
+//turn entered word to array(splice). turnIntoList()
+//go through array until first vowel(loop until vowel). checkConsonent()
+//take letters until first vowel and put to the end (pop) and add ay. addVowelAy()
+
+
 'use strict';
 
 const assert = require('assert');
