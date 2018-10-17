@@ -10,7 +10,7 @@ const rl = readline.createInterface({
 // hand1 enters move, hand2 move (done for us)
 // check to see if move is valid. checkValid
 // if moves invalid redo moves (getprompt)
-// check win state (loss or tie). checkWin
+// check win state (loss or tie). checkWin()
 
 function rockPaperScissors(hand1, hand2) {
   if (checkValid(hand1) && checkValid(hand2)) {
