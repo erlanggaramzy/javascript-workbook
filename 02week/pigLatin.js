@@ -17,11 +17,72 @@ const rl = readline.createInterface({
 //take letters until first vowel and put to the end (pop) and add ay. addVowelAy()
 
 function pigLatin(word) {
-
-  // Your code here
-
+  var wordArray = turnToList(word);
+  if (checkValid(wordArray)) {
+    if (checkVowel(wordArray)) {
+      return wordArray.join("") + "yay";
+    } else {
+      var vowelIndex = checkConsonant(wordArray);
+      pushConsonant(wordArray, vowelIndex);
+      return wordArray.join("") + "ay";
+    }  //end of checkVowel()
+  } else {
+    return "Please remove any numbers and try again" 
+  }  //end of checkValid()
 }
 
+const turnToList = (word) => {
+  const lowerCase = word.toLowerCase();
+  const trimmed = lowerCase.trim();
+  const toList = trimmed.split("");
+  return toList;
+}
+
+const checkValid = (word) => {
+  const arrayLength = word.length;
+  for (var i = 0; i < arrayLength; i++) {
+    if (isNaN(word[i])) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+const checkVowel = (word) => {
+  const vowel = ["a", "e", "i", "o", "u"];
+  for (var i = 0; i < vowel.length; i++) {
+    if (word[0] == vowel[i]) {
+      return true;
+    } 
+  } 
+  return false;
+}
+
+const checkConsonant = (word) => {
+  const vowel = ["a", "e", "i", "o", "u"];
+  var i = 0;
+  var found = false;
+  while (!found && i < word.length) {
+    for (var j = 0; j < vowel.length; j++) {
+      if (word[i] == vowel[j]) {
+        found = true; 
+        break;
+      }
+    }
+    if (!found) {
+      i++;
+    }
+  } 
+  return i;
+}
+
+const pushConsonant = (word, firstVowelIndex) => {
+  for (var i = 0; i < firstVowelIndex; i++) {
+    const letter = word.shift();
+    word.push(letter);
+  }
+}
 
 function getPrompt() {
   rl.question('word ', (answer) => {
