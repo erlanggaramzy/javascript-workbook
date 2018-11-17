@@ -2,24 +2,50 @@
 
 const assert = require('assert');
 
-function forEach(arr, callback) {
-  // Your code here
+function forEach(arr, hoge) {
+  for (let i = 0; i < arr.length; i++) {
+    hoge(arr[i]*arr.length)
+  };
 }
 
-function map(arr, callback) {
-  // Your code here
+function map(arr, hoge) {
+  const newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    newArr.push(hoge(arr[i]));
+  };
+  return newArr;
 }
 
-function filter(arr, callback) {
-  // Your code here
+function filter(arr, hoge) {
+  const newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (hoge(arr[i]) == true) {
+      newArr.push(arr[i]);
+    };
+  };
+  return newArr;
 }
 
-function some(arr, callback) {
-  // Your code here
+function some(arr, hoge) {
+  for (let i = 0; i < arr.length; i++) {
+    if (hoge(arr[i]) == true) {
+      return true;
+    } 
+  }
+  return false;
 }
 
-function every(arr, callback) {
-  // Your code here
+function every(arr, hoge) {
+  let doot = false;
+  for (let i = 0; i < arr.length; i++) {
+    if (hoge(arr[i]) == true) {
+      doot = true;
+    } else {
+      doot = false;
+      break;
+    }
+  }
+  return doot;
 }
 
 if (typeof describe === 'function') {
