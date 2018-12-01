@@ -2,15 +2,15 @@ const strNums = ["1","4","1","5","9","2","6","5","3","5","8","9","7","9","3","2"
 
 // Given 1000 digits of PI as strings, return an array of the digits as numbers
 const nums = strNums.map((numbers) => {
-    return Number(numbers);
-  });
+  return Number(numbers);
+});
 
 // Find the sum of the even values
 const evens = strNums.filter((numbers) => {
   return numbers % 2 == 0
 });
 const sumEvens = evens.reduce((total, numbers) => {
-    return parseInt(total) + parseInt(numbers);
+  return parseInt(total) + parseInt(numbers);
 });
 
 console.log(sumEvens);
@@ -87,7 +87,7 @@ const weather = [
     visibility: 11.14056410562316,
     predictability: 71
   },
-],
+];
 
 //using a higher order function, create an array of the unique 'weather_state_name' values of the weather array. Your function should return the following array ['Light Cloud', 'Heavy Cloud', 'Showers']
 const weatherStates = weather.map((hoge) => {
